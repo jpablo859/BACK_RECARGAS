@@ -13,6 +13,7 @@ public interface SaleRepository extends JpaRepository<SaleEntity, Long>, JpaSpec
             + "FROM SaleEntity t "
             + "JOIN t.operatorId o "
             + "JOIN t.sellerId s "
-            + "GROUP BY o.name, s.name")
+            + "GROUP BY o.name, s.name "
+            + "ORDER BY o.name ASC, s.name ASC")
     List<SalesSummaryProjection> getSalesSummary();
 }
